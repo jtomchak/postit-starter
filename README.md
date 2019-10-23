@@ -1,7 +1,6 @@
-<!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
 <p align="center">
   <a href="https://postit.blog">
-    <img alt="Gatsby" src="https://postit.blog/images/post-it-brand.png" width="80" />
+    <img alt="Postit" src="https://postit.blog/images/post-it-brand.png" width="80" />
   </a>
 </p>
 <h1 align="center">
