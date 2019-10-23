@@ -2,7 +2,7 @@ module.exports = {
   siteMetadata: {
     title: `Postit Default Starter`,
     description: `Default starter for getting your postit going.`,
-    author: `@gatsbyjs`,
+    author: `@jtomchak`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
