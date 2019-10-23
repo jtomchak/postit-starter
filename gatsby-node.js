@@ -15,6 +15,7 @@ edges {
     title
     slug
     createdAt(formatString: "YYYY/MM/DD")
+    datePath: createdAt(formatString: "YYYY/MM/DD")
   }
 }
 }
@@ -26,9 +27,8 @@ edges {
   }
   // create page for each slug from _all_ query
   result.data.allPostitPost.edges.forEach(({ node }) => {
-    const date = new Date(node.createdAt)
     createPage({
-      path: `${node.createdAt}/${node.slug}`,
+      path: `${node.datePath}/${node.slug}`,
       component: postitPostTemplate,
       context: { slug: node.slug }, // additional data can be passed via context
     })
