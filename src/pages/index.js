@@ -24,7 +24,7 @@ export default function IndexPage({ data }) {
                   <div className="postit-content"
                     dangerouslySetInnerHTML={{ __html: post.content_html }} />
                 </div>
-                <em> <Link to={`${post.datePath}/${post.slug}`}>{post.createdAt}</Link></em>
+                <em> <Link to={`/${post.datePath}/${post.slug}`}>{post.createdAt}</Link></em>
               </div>
             )
           })}
