@@ -6,16 +6,35 @@ import Layout from "../components/layout"
 import Image from "../components/image"
 import SEO from "../components/seo"
 
+import styled from '@emotion/styled';
+import tw from 'tailwind.macro';
+
+const BlogPosts = tw.div`
+w-full
+`;
+const PostContainer = styled.div`
+  ${tw`leading-loose tracking-tight`}
+  padding-bottom: 20px;
+  ol, ul {
+    margin-left: 0;
+    padding-left: 40px;
+  }
+  li {
+    ${tw`list-disc`}
+  }
+`;
+
+
 export default function IndexPage({ data }) {
   const { edges: posts } = data.allPostitPost
   return (
     <Layout>
       <SEO title="Home" />
-      <div className="blog-posts">
+      <BlogPosts>
         {posts
           .map(({ node: post }) => {
             return (
-              <div className="postit-post-container" key={post.id}>
+              <PostContainer key={post.id}>
                 <Helmet title={`Post it - ${post.title}`} />
                 <div className="post">
                   {post.title && <h1>
@@ -25,10 +44,10 @@ export default function IndexPage({ data }) {
                     dangerouslySetInnerHTML={{ __html: post.content_html }} />
                 </div>
                 <em> <Link to={`/${post.datePath}/${post.slug}`}>{post.createdAt}</Link></em>
-              </div>
+              </PostContainer>
             )
           })}
-      </div>
+      </BlogPosts>
     </Layout >
   )
 }

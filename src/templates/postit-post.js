@@ -5,6 +5,24 @@ import { graphql } from 'gatsby'
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
+import styled from '@emotion/styled';
+import tw from 'tailwind.macro';
+
+const BlogPosts = tw.div`
+w-full
+`;
+const PostContainer = styled.div`
+  ${tw`leading-loose tracking-tight`}
+  padding-bottom: 20px;
+  ol, ul {
+    margin-left: 0;
+    padding-left: 40px;
+  }
+  li {
+    ${tw`list-disc`}
+  }
+`;
+
 export default function Template({
   data, // this prop will be injected by the GraphQL query we'll write in a bit
 }) {
@@ -12,14 +30,14 @@ export default function Template({
   return (
     <Layout>
       <SEO title={title} />
-      <div className="postit-post-container">
+      <BlogPosts>
         <Helmet title={`Post it - ${title}`} />
-        <div className="post">
+        <PostContainer>
           {title && <h1>{title}</h1>}
           <div className="postit-content"
             dangerouslySetInnerHTML={{ __html: content_html }} />
-        </div>
-      </div>
+        </PostContainer>
+      </BlogPosts>
     </Layout>
   )
 }
