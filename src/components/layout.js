@@ -8,9 +8,13 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
+import tw from 'tailwind.macro';
 
 import Header from "./header"
-import "./layout.css"
+// import "./layout.css"
+const PageContainer = tw.div`
+bg-grey-lightest font-sans leading-normal tracking-normal
+`;
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -34,7 +38,9 @@ const Layout = ({ children }) => {
           paddingTop: 0,
         }}
       >
-        <main>{children}</main>
+        <PageContainer>
+          <main>{children}</main>
+        </PageContainer>
         <footer>
           © {new Date().getFullYear()}, Built with
           {` `}
