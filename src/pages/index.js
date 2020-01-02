@@ -13,14 +13,20 @@ const BlogPosts = tw.div`
 w-full
 `;
 const PostContainer = styled.div`
-  ${tw`leading-loose tracking-tight`}
-  padding-bottom: 20px;
+  ${tw`leading-relaxed tracking-normal`}
+  padding-bottom: 44px;
   ol, ul {
     margin-left: 0;
     padding-left: 40px;
   }
   li {
     ${tw`list-disc`}
+  }
+  p {
+    ${tw`mb-8`}
+  }
+  em {
+    ${tw`text-sm`}
   }
 `;
 
