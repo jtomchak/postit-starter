@@ -28,6 +28,9 @@ const PostContainer = styled.div`
   em {
     ${tw`text-sm`}
   }
+  blockquote{
+    ${tw`border-l-2 border-grey-light pl-4 italic mt-2 ml-2`}
+  }
 `;
 
 

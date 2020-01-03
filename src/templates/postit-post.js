@@ -18,20 +18,28 @@ const PostContainer = styled.div`
     margin-left: 0;
     padding-left: 40px;
   }
+  p {
+    ${tw`mb-8`}
+  }
+  em {
+    ${tw`text-sm`}
+  }
   li {
     ${tw`list-disc`}
   }
+  blockquote{
+    ${tw`border-l-2 border-grey-light pl-4 italic mt-2 ml-2`}
+  }
 `;
 
-export default function Template({
-  data, // this prop will be injected by the GraphQL query we'll write in a bit
-}) {
+export default function Template({ data }) {
   const { title, content_html, createdAt } = data.postitPost;
   return (
     <Layout>
       <SEO title={title} />
       <BlogPosts>
-        <Helmet title={`Post it - ${title}`} />
+        {/* <Helmet title={`Post it - ${title}`} /> */}
+        <Helmet title={`Post it -`} />
         <PostContainer>
           {title && <h1>{title}</h1>}
           <div className="postit-content"

@@ -1,8 +1,15 @@
 @tailwind base;
 
-@tailwind components;
+h1 {
+  @apply text-2xl;
+}
+h2 {
+  @apply text-xl;
+}
+h3 {
+  @apply text-lg;
+}
 
-@tailwind utilities;
 
 a:not(.nav) {
   font-weight: bold;
@@ -39,3 +46,9 @@ a:focus {
   outline: none;
   background: #E9D8FD;
 }
+
+
+
+  @tailwind components;
+  
+  @tailwind utilities;
