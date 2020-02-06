@@ -55,7 +55,6 @@ query getPostBySlug($slug: String) {
   postitPost( slug: { eq: $slug }) {
     content_html
     slug
-    publishedAt(formatString: "MMMM DD, YYYY")
   }
 }
 `

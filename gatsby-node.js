@@ -23,7 +23,7 @@ edges {
     content_html
     slug
     publishedAt(formatString: "YYYY/MM/DD")
-    datePath: publishedAt(formatString: "YYYY/MM/DD")
+    published
   }
 }
 }

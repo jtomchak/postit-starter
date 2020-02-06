@@ -1,7 +1,7 @@
 
 module.exports = {
   siteMetadata: {
-    title: process.env.title,
+    title: process.env.title || "Starter",
     description: `Default starter for getting your postit going.`,
     author: `@jtomchak`,
     siteUrl: `https://${process.env.username}.postit.blog`
