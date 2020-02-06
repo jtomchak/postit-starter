@@ -51,7 +51,7 @@ module.exports = {
     {
       resolve: `gatsby-source-postit`,
       options: {
-        userName: 'jtomchak'
+        userName: process.env.username
       }
     },
     {
