@@ -14,17 +14,16 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   const postitPostTemplate = path.resolve(`src/templates/postit-post.js`)
   const result = await graphql(`
   { allPostitPost(
-    sort: { order: DESC, fields: [createdAt] }
+    sort: { order: DESC, fields: [publishedAt] }
     limit: 1000
   )   {
 edges {
   node {
     id
     content_html
-    title
     slug
-    createdAt(formatString: "YYYY/MM/DD")
-    datePath: createdAt(formatString: "YYYY/MM/DD")
+    publishedAt(formatString: "YYYY/MM/DD")
+    datePath: publishedAt(formatString: "YYYY/MM/DD")
   }
 }
 }
@@ -37,7 +36,7 @@ edges {
   // create page for each slug from _all_ query
   result.data.allPostitPost.edges.forEach(({ node }) => {
     createPage({
-      path: `${node.datePath}/${node.slug}`,
+      path: node.slug,
       component: postitPostTemplate,
       context: { slug: node.slug }, // additional data can be passed via context
     })

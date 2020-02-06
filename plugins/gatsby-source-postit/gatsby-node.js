@@ -10,7 +10,7 @@ exports.sourceNodes = (
   // Convert the options object into a query string
   // const apiOptions = queryString.stringify(config);
   const processPost = post => {
-    const nodeId = createNodeId(`postit-post-${post.createdAt}`)
+    const nodeId = createNodeId(`postit-post-${post.publishedAt}`)
     const nodeContent = JSON.stringify(post)
     const nodeData = Object.assign({}, post, {
       id: nodeId,
@@ -25,7 +25,8 @@ exports.sourceNodes = (
     return nodeData
   }
   const { userName } = config;
-  const apiUrl = `https://postit.blog/api/v1/users/${userName}/posts`;
+  // const apiUrl = `https://postit.blog/api/v1/users/${userName}/posts`;
+  const apiUrl = `http://localhost:4000/api/v1/users/${userName}/posts`;
 
   // Gatsby expects sourceNodes to return a promise
   return (fetch(apiUrl).then(res => res.json()).then(data => {

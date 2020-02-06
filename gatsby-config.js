@@ -49,7 +49,7 @@ module.exports = {
     {
       resolve: `gatsby-source-postit`,
       options: {
-        userName: 'jesse'
+        userName: 'jtomchak'
       }
     }
     // this (optional) plugin enables Progressive Web App + Offline functionality

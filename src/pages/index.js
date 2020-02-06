@@ -52,7 +52,7 @@ export default function IndexPage({ data }) {
                   <div className="postit-content"
                     dangerouslySetInnerHTML={{ __html: post.content_html }} />
                 </div>
-                <em> <Link to={`/${post.datePath}/${post.slug}`}>{post.createdAt}</Link></em>
+                <em> <Link to={`/${post.slug}`}>{post.publishedAt}</Link></em>
               </PostContainer>
             )
           })}
@@ -64,17 +64,15 @@ export default function IndexPage({ data }) {
 export const pageQuery = graphql`
   query IndexQuery   { 
     allPostitPost(
-    sort: { order: DESC, fields: [createdAt] }
+    sort: { order: DESC, fields: [publishedAt] }
     limit: 1000
   )   {
 edges {
   node {
     id
     content_html
-    title
     slug
-    createdAt(formatString: "MMMM DD YYYY")
-    datePath: createdAt(formatString: "YYYY/MM/DD")
+    publishedAt(formatString: "MMMM DD YYYY")
   }
 }
 }

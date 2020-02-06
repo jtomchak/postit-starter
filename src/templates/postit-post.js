@@ -33,7 +33,7 @@ const PostContainer = styled.div`
 `;
 
 export default function Template({ data }) {
-  const { title, content_html, createdAt } = data.postitPost;
+  const { title, content_html, publishedAt } = data.postitPost;
   return (
     <Layout>
       <SEO title={title} />
@@ -53,10 +53,9 @@ export default function Template({ data }) {
 export const postPageQuery = graphql`
 query getPostBySlug($slug: String) {
   postitPost( slug: { eq: $slug }) {
-    title
     content_html
     slug
-    createdAt(formatString: "MMMM DD, YYYY")
+    publishedAt(formatString: "MMMM DD, YYYY")
   }
 }
 `
