@@ -1,8 +1,10 @@
+
 module.exports = {
   siteMetadata: {
-    title: `Postit Default Starter`,
+    title: process.env.title,
     description: `Default starter for getting your postit going.`,
     author: `@jtomchak`,
+    siteUrl: `https://${process.env.username}.postit.blog`
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -51,6 +53,55 @@ module.exports = {
       options: {
         userName: 'jtomchak'
       }
+    },
+    {
+      resolve: `gatsby-plugin-feed`,
+      options: {
+        query: `
+            {
+              site {
+                siteMetadata {
+                  title
+                  description
+                  siteUrl
+                  site_url: siteUrl
+                }
+              }
+            }
+          `,
+        feeds: [
+          {
+            serialize: ({ query: { site, allPostitPost } }) => {
+              return allPostitPost.edges.map(edge => {
+                return Object.assign({}, {
+                  date: edge.node.publishedAt,
+                  url: site.siteMetadata.siteUrl + edge.node.slug,
+                  guid: site.siteMetadata.siteUrl + edge.node.slug,
+                  custom_elements: [{ "content:encoded": edge.node.content_html }],
+                })
+              })
+            },
+            query: `
+                {
+                  allPostitPost(
+                    sort: { order: DESC, fields: [publishedAt] }
+                    limit: 1000
+                  )  {
+                    edges {
+                      node {
+                        id
+                        content_html
+                        slug
+                        publishedAt(formatString: "YYYY/MM/DD")
+                      }
+                    }
+                  }
+                }
+              `,
+            output: "/rss.xml",
+            title: "Your Site's RSS Feed",
+          }]
+      },
     }
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
