@@ -14,6 +14,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   const postitPostTemplate = path.resolve(`src/templates/postit-post.js`)
   const result = await graphql(`
   { allPostitPost(
+    filter: {published: {eq: true}} 
     sort: { order: DESC, fields: [publishedAt] }
     limit: 1000
   )   {

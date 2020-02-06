@@ -33,7 +33,7 @@ const PostContainer = styled.div`
 `;
 
 export default function Template({ data }) {
-  const { title, content_html, publishedAt } = data.postitPost;
+  const { title, content_html } = data.postitPost;
   return (
     <Layout>
       <SEO title={title} />

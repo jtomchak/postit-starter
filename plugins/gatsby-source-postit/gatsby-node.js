@@ -25,7 +25,7 @@ exports.sourceNodes = (
     return nodeData
   }
   const { userName } = config;
-  const apiUrl = `https://postit.blog/api/v1/users/${username}/posts`;
+  const apiUrl = `https://postit.blog/api/v1/users/${process.env.username}/posts`;
   // const apiUrl = `http://localhost:4000/api/v1/users/${userName}/posts`; dev only
 
   // Gatsby expects sourceNodes to return a promise
