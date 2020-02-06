@@ -64,6 +64,7 @@ export default function IndexPage({ data }) {
 export const pageQuery = graphql`
   query IndexQuery   { 
     allPostitPost(
+    filter: {published: {eq: true}}   
     sort: { order: DESC, fields: [publishedAt] }
     limit: 1000
   )   {
@@ -73,6 +74,7 @@ edges {
     content_html
     slug
     publishedAt(formatString: "MMMM DD YYYY")
+    published
   }
 }
 }
