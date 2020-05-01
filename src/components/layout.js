@@ -5,16 +5,14 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import React from "react"
-import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
-import tw from 'tailwind.macro';
+import React from "react";
+import PropTypes from "prop-types";
+import { useStaticQuery, graphql } from "gatsby";
+import tw from "twin.macro";
 
-import Header from "./header"
+import Header from "./header";
 // import "./layout.css"
-const PageContainer = tw.div`
-bg-grey-lightest font-sans leading-normal tracking-normal
-`;
+const PageContainer = tw.div` font-sans leading-normal tracking-normal`;
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -25,7 +23,7 @@ const Layout = ({ children }) => {
         }
       }
     }
-  `)
+  `);
 
   return (
     <>
@@ -48,11 +46,11 @@ const Layout = ({ children }) => {
         </footer>
       </div>
     </>
-  )
-}
+  );
+};
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
-}
+};
 
-export default Layout
+export default Layout;

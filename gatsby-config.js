@@ -1,10 +1,9 @@
-
 module.exports = {
   siteMetadata: {
     title: process.env.title || "Starter",
     description: `Default starter for getting your postit going.`,
     author: `@jtomchak`,
-    siteUrl: `https://${process.env.username}.postit.blog`
+    siteUrl: `https://${process.env.username}.postit.blog`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -13,12 +12,6 @@ module.exports = {
       resolve: `gatsby-plugin-emotion`,
       options: {
         // Accepts all options defined by `babel-plugin-emotion` plugin.
-      },
-    },
-    {
-      resolve: `gatsby-plugin-postcss`,
-      options: {
-        // Accepts all options defined by `gatsby-plugin-postcss` plugin.
       },
     },
     {
@@ -51,8 +44,8 @@ module.exports = {
     {
       resolve: `gatsby-source-postit`,
       options: {
-        userName: process.env.username
-      }
+        userName: process.env.username,
+      },
     },
     {
       resolve: `gatsby-plugin-feed`,
@@ -72,14 +65,19 @@ module.exports = {
         feeds: [
           {
             serialize: ({ query: { site, allPostitPost } }) => {
-              return allPostitPost.edges.map(edge => {
-                return Object.assign({}, {
-                  date: edge.node.publishedAt,
-                  url: site.siteMetadata.siteUrl + edge.node.slug,
-                  guid: site.siteMetadata.siteUrl + edge.node.slug,
-                  custom_elements: [{ "content:encoded": edge.node.content_html }],
-                })
-              })
+              return allPostitPost.edges.map((edge) => {
+                return Object.assign(
+                  {},
+                  {
+                    date: edge.node.publishedAt,
+                    url: site.siteMetadata.siteUrl + edge.node.slug,
+                    guid: site.siteMetadata.siteUrl + edge.node.slug,
+                    custom_elements: [
+                      { "content:encoded": edge.node.content_html },
+                    ],
+                  }
+                );
+              });
             },
             query: `
                 {
@@ -100,11 +98,12 @@ module.exports = {
               `,
             output: "/rss.xml",
             title: "Your Site's RSS Feed",
-          }]
+          },
+        ],
       },
-    }
+    },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
   ],
-}
+};

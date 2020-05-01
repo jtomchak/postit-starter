@@ -1,12 +1,12 @@
-import React from 'react'
-import { Helmet } from 'react-helmet'
-import { graphql } from 'gatsby'
+import React from "react";
+import { Helmet } from "react-helmet";
+import { graphql } from "gatsby";
 
-import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Layout from "../components/layout";
+import SEO from "../components/seo";
 
-import styled from '@emotion/styled';
-import tw from 'tailwind.macro';
+import styled from "@emotion/styled";
+import tw from "twin.macro";
 
 const BlogPosts = tw.div`
 w-full
@@ -14,7 +14,8 @@ w-full
 const PostContainer = styled.div`
   ${tw`leading-loose tracking-tight`}
   padding-bottom: 20px;
-  ol, ul {
+  ol,
+  ul {
     margin-left: 0;
     padding-left: 40px;
   }
@@ -27,8 +28,8 @@ const PostContainer = styled.div`
   li {
     ${tw`list-disc`}
   }
-  blockquote{
-    ${tw`border-l-2 border-grey-light pl-4 italic mt-2 ml-2`}
+  blockquote {
+    ${tw`border-l-2 border-gray-200 pl-4 italic mt-2 ml-2`}
   }
 `;
 
@@ -42,19 +43,21 @@ export default function Template({ data }) {
         <Helmet title={`Post it -`} />
         <PostContainer>
           {title && <h1>{title}</h1>}
-          <div className="postit-content"
-            dangerouslySetInnerHTML={{ __html: content_html }} />
+          <div
+            className="postit-content"
+            dangerouslySetInnerHTML={{ __html: content_html }}
+          />
         </PostContainer>
       </BlogPosts>
     </Layout>
-  )
+  );
 }
 
 export const postPageQuery = graphql`
-query getPostBySlug($slug: String) {
-  postitPost( slug: { eq: $slug }) {
-    content_html
-    slug
+  query getPostBySlug($slug: String) {
+    postitPost(slug: { eq: $slug }) {
+      content_html
+      slug
+    }
   }
-}
-`
+`;

@@ -1,5 +1,3 @@
-@tailwind base;
-
 h1 {
   @apply text-2xl;
 }
@@ -10,12 +8,11 @@ h3 {
   @apply text-lg;
 }
 
-
 a:not(.nav) {
   font-weight: bold;
   text-decoration: none;
   padding: 2px;
-  background: linear-gradient(to right, #5A67D8, #5A67D8);
+  background: linear-gradient(to right, #5a67d8, #5a67d8);
   background-repeat: repeat-x;
   background-size: 100% 2px;
   background-position: 0 95%;
@@ -27,11 +24,11 @@ a:not(.nav) {
 }
 
 a:hover {
-  color: #B794F4;
+  color: #b794f4;
   font-weight: bold;
   text-decoration: none;
   padding-bottom: 2px;
-  background: linear-gradient(to right, #9F7AEA, #E9D8FD);
+  background: linear-gradient(to right, #9f7aea, #e9d8fd);
   background-repeat: repeat-x;
   background-size: 100% 2px;
   background-position: 50% 95%;
@@ -44,11 +41,5 @@ a:hover {
 
 a:focus {
   outline: none;
-  background: #E9D8FD;
+  background: #e9d8fd;
 }
-
-
-
-  @tailwind components;
-  
-  @tailwind utilities;
