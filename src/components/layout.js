@@ -11,6 +11,7 @@ import { useStaticQuery, graphql } from "gatsby";
 import tw from "twin.macro";
 
 import Header from "./header";
+import { Helmet } from "react-helmet";
 // import "./layout.css"
 const PageContainer = tw.div` font-sans leading-normal tracking-normal`;
 
@@ -28,6 +29,11 @@ const Layout = ({ children }) => {
   return (
     <>
       <Header siteTitle={data.site.siteMetadata.title} />
+      <Helmet>
+        <link rel="authorization_endpoint" href="https://postit.blog/auth" />
+        <link rel="token_endpoint" href="https://postit.blog/token" />
+        <link rel="micropub" href="https://postit.blog/micropub" />
+      </Helmet>
       <div
         style={{
           margin: `0 auto`,
