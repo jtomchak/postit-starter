@@ -30,8 +30,8 @@ const Layout = ({ children }) => {
     <>
       <Header siteTitle={data.site.siteMetadata.title} />
       <Helmet>
-        <link rel="authorization_endpoint" href="https://postit.blog/auth" />
-        <link rel="token_endpoint" href="https://postit.blog/token" />
+        <link rel="authorization_endpoint" href="https://postit.blog/indieweb/auth" />
+        <link rel="token_endpoint" href="https://postit.blog/indieweb/token" />
         <link rel="micropub" href="https://postit.blog/micropub" />
       </Helmet>
       <div
